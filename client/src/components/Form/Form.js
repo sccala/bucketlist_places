@@ -1,11 +1,14 @@
+// @ts-nocheck
 import { Paper, TextField, Typography, Button } from '@material-ui/core'
 import FileBase from 'react-file-base64'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useStyles from './styles'
 import { useDispatch } from 'react-redux'
-import { createPost } from '../../actions/posts'
+import { createPost, updatePost } from '../../actions/posts'
 
-const Form = () => {
+import { useSelector } from 'react-redux'
+
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: '',
     title: '',
@@ -13,18 +16,37 @@ const Form = () => {
     tags: '',
     selectedFile: '',
   })
+  const post = useSelector(state => (currentId ? state.posts.find(p => p._id === currentId) : null))
+
+  useEffect(() => {
+    if (post) setPostData(post)
+  }, [post])
+
   const classes = useStyles()
+  const clear = () => {
+    setCurrentId(null)
+    setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' })
+  }
+  const dispatch = useDispatch()
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(createPost(postData))
+    if (currentId) {
+      dispatch(updatePost(currentId, postData))
+    } else {
+      dispatch(createPost(postData))
+    }
+    clear()
   }
-  const clear = () => {}
-  const dispatch = useDispatch()
 
   return (
     <Paper className={classes.paper}>
-      <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`}>
-        <Typography variant='h6'></Typography>
+      <form
+        autoComplete='off'
+        noValidate
+        className={`${classes.root} ${classes.form}`}
+        onSubmit={handleSubmit}
+      >
+        <Typography variant='h6'>{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
         <TextField
           name='creator'
           variant='outlined'
@@ -54,7 +76,7 @@ const Form = () => {
         <TextField
           name='tags'
           variant='outlined'
-          label='Tags (coma separated)'
+          label='Tags (comma separated)'
           fullWidth
           value={postData.tags}
           onChange={e => setPostData({ ...postData, tags: e.target.value })}
@@ -73,7 +95,6 @@ const Form = () => {
           size='large'
           type='submit'
           fullWidth
-          onClick={handleSubmit}
         >
           Submit
         </Button>
