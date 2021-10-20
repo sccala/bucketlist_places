@@ -8,6 +8,7 @@ import Posts from './components/Posts/Posts'
 import useStyles from './styles'
 import memories from './images/memories.png'
 import { getPosts } from './actions/posts'
+
 const App = () => {
   const [currentId, setCurrentId] = useState(0)
   const classes = useStyles()
@@ -16,6 +17,7 @@ const App = () => {
   useEffect(() => {
     dispatch(getPosts())
   }, [currentId,dispatch])
+  
   return (
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>
@@ -26,7 +28,7 @@ const App = () => {
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justify='space-between' alignItems='stretch' spacing={3}>
+          <Grid className={classes.mainContainer} container justify='space-between' alignItems='stretch' spacing={3}>
             <Grid item xs={12} sm={7}>
               <Posts  setCurrentId={setCurrentId} />
             </Grid>
