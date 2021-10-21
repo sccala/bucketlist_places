@@ -22,6 +22,11 @@ This is a CRUD (Create, Read, Update, Delete) app to share the memories of anime
 - Redux
 - Api
 - Materiul UI
+- Heroku CLI
+- Netlify CLI
+- Oauth
+- JSON web token
 
 ## Demo
-Coming soon
+Client side is deployed on the Netlify, and server is on Heroku.
+This is the [deployd demo site](https://memoriessocialapp.netlify.app/)

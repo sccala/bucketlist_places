@@ -13,7 +13,14 @@ app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 
 app.use('/posts', postRoutes)
+app.get('/',(req,res)=>{
+  res.send('Hello to Memories API')
+})
 
+// REMOVE THIS BEFORE GIT PUSH
+const CONNECTION_URL =
+  'mongodb+srv://newuser:newuser123@cluster0.c4bom.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/test'
+  //
 const PORT = process.env.PORT || 5000
 
 mongoose
