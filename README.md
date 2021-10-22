@@ -19,6 +19,7 @@ This is a CRUD (Create, Read, Update, Delete) app to share the memories of anime
 - Mongo DB atlas cloud
 - Mongoose, Nodemon
 - Express
+- Node
 - Redux
 - Api
 - Materiul UI

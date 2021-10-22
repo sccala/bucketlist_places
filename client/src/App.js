@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Container } from '@material-ui/core'
 import Navbar from './components/Navbar/Navbar'
-import { Home } from './components/Home/Home'
+import Home from './components/Home/Home'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Auth } from './components/Auth/Auth'
 

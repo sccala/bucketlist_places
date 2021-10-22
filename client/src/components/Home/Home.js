@@ -1,12 +1,12 @@
-// @ts-nocheck
-import { Container, Grid, Grow } from '@material-ui/core'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Container, Grow, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { getPosts } from '../../actions/posts'
-import Form from '../Form/Form'
-import Posts from '../Posts/Posts'
 
-export const Home = () => {
+import { getPosts } from '../../actions/posts'
+import Posts from '../Posts/Posts'
+import Form from '../Form/Form'
+
+const Home = () => {
   const [currentId, setCurrentId] = useState(0)
   const dispatch = useDispatch()
 
@@ -15,15 +15,9 @@ export const Home = () => {
   }, [currentId, dispatch])
 
   return (
-    <Grow>
+    <Grow in>
       <Container>
-        <Grid
-          justify='space-between'
-          alignItems='stretch'
-          spacing={3}
-          container
-          justifyContent='space-between'
-        >
+        <Grid container justifyContent='space-between' alignItems='stretch' spacing={3}>
           <Grid item xs={12} sm={7}>
             <Posts setCurrentId={setCurrentId} />
           </Grid>
@@ -35,3 +29,5 @@ export const Home = () => {
     </Grow>
   )
 }
+
+export default Home
