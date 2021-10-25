@@ -9,15 +9,29 @@ import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 import { AUTH } from '../../constants/actionTypes'
+import { signin, signup } from '../../actions/auth'
+
+const initialState = { firstName: '', lastName: '', email: '', confirmPassword: '' }
 
 export const Auth = () => {
   const [showPassword, setShowPassword] = useState()
   const [isSignup, setIsSignup] = useState(false)
+  const [formData, setFormData] = useState(initialState)
   const history = useHistory()
   const classes = useStyles()
   const dispatch = useDispatch()
-  const handleSubmit = () => {}
-  const handleChange = () => {}
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    if (isSignup) {
+      dispatch(signup(formData, history))
+    } else {
+      dispatch(signin(formData, history))
+    }
+  }
+  const handleChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
   const handleShowPassword = () => setShowPassword(prevShowPassword => !prevShowPassword)
 
   const switchMode = () => {
@@ -28,7 +42,7 @@ export const Auth = () => {
   const googleSuccess = async res => {
     const result = res?.profileObj
     const token = res?.tokenId
-    
+
     try {
       dispatch({ type: AUTH, data: { result, token } })
       history.push('/')
@@ -74,7 +88,7 @@ export const Auth = () => {
             {isSignup && (
               <Input
                 name='confirmPassword'
-                labe='Repeat Password'
+                label='Repeat Password'
                 handleChange={handleChange}
                 type='password'
               />
