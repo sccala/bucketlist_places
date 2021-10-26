@@ -18,9 +18,8 @@ app.use('/posts', postRoutes)
 app.use('/user', userRoutes)
 
 const PORT = process.env.PORT || 5000
-const CONNECTION_URL =
-  'mongodb+srv://newuser:newuser123@cluster0.c4bom.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-
+// const CONNECTION_URL =
+//   'mongodb+srv://newuser:newuser123@cluster0.c4bom.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 mongoose
   .connect(process.env.CONNECTION_URL, {
