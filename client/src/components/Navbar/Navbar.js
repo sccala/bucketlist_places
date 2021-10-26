@@ -3,6 +3,7 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import memories from '../../images/memories.png'
 import useStyles from './styles'
+import decode from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { LOGOUT } from '../../constants/actionTypes'
@@ -13,7 +14,7 @@ const Navbar = () => {
   const history = useHistory()
   const location = useLocation()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  
+
   const logout = () => {
     dispatch({ type: LOGOUT })
     history.push('/')
@@ -22,6 +23,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = user?.token
+
+    if (token) {
+      const decodedToken = decode(token)
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout()
+    }
     setUser(JSON.parse(localStorage.getItem('profile')))
   }, [location])
 
