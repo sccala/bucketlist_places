@@ -14,7 +14,7 @@ import { signin, signup } from '../../actions/auth'
 const initialState = { firstName: '', lastName: '', email: '', confirmPassword: '' }
 
 export const Auth = () => {
-  const [showPassword, setShowPassword] = useState()
+  const [showPassword, setShowPassword] = useState(false)
   const [isSignup, setIsSignup] = useState(false)
   const [formData, setFormData] = useState(initialState)
   const history = useHistory()
@@ -36,7 +36,7 @@ export const Auth = () => {
 
   const switchMode = () => {
     setIsSignup(prevIsSignup => !prevIsSignup)
-    handleShowPassword(false)
+    setShowPassword(false)
   }
 
   const googleSuccess = async res => {
