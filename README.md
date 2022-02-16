@@ -1,6 +1,6 @@
 # Bucket List Places
 ## Introduction
-This is a full-featured social app where people can share the places they want to visit someday. People can register their account using GoogleAuth or Jason Web Token (email and password). Once they logged in, they can create, read, update, delete their posts. Also, users can react to others' posts by liking them.
+This is a full-featured social app where people can share the places they want to visit someday. People can register their account using GoogleAuth or JSON Web Token (email and password). Once they logged in, they can create, read, update, delete their posts. Also, users can react to others' posts by liking them.
 <p float='left'>
 <img src="./assets/1.jpg" alt="bucket list places" width="500"/> 
 </p>
