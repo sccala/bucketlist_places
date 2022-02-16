@@ -36,8 +36,7 @@ const Navbar = () => {
     <>
       <AppBar className={classes.appBar} position='static' color='inherit'>
         <Link to='/' className={classes.brandContainer}>
-          <img src={memoriesText} alt='icon' height='45px' />
-          <img className={classes.image} src={memoriesLogo} alt='icon' height='45px' />
+          <h1 className={classes.heading}>Bucket List Places</h1>
         </Link>
         <Toolbar className={classes.toolbar}>
           {user?.result ? (

@@ -1,8 +1,9 @@
 body {
-    background-color: #f7f8fc;
+    background-color: #23263A;
 }
 
 * {
     /* font-family: 'Noto Sans JP' !important; */
-    font-family: 'Heebo', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
+    backgroundColor: '#23263A'
 }
