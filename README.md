@@ -19,8 +19,6 @@ This is a full-featured social app where people can share the places they want t
 - React
 - Redux
 - Node
-- Mongoose
-- Nodemon
 - Express
 - API
 - Google Auth
