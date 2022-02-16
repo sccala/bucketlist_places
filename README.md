@@ -1,6 +1,6 @@
-# Animemories App
+# Bucket List Places
 ## Introduction
-This is a full stack social media where people can share their memories about favorite anime scene. People can register their own account using Google Auth or email and password. Once they log in, they can create, read, update, delete their own posts. Also, users can react to others' posts by liking them.
+This is a full-featured social app where people can share the places they want to visit someday. People can register their account using GoogleAuth or Jason Web Token (email and password). Once they logged in, they can create, read, update, delete their posts. Also, users can react to others' posts by liking them.
 
 ## Features
 - Create, read, delete, edit user's comment.
@@ -15,14 +15,14 @@ This is a full stack social media where people can share their memories about fa
 
 - React, Redux
 - Node, Mongoose, Nodemon, Express
-- Api
+- API
 - Google Auth
 - JSON web token
-- Materiul UI
+- Material UI
 - Mongo DB atlas cloud
 - Heroku CLI
 - Netlify CLI
 
 ## Demo
 Client is deployed on the Netlify, and server is on Heroku.
-This is the [deployd demo site](https://memoriessocialapp.netlify.app/)
+This is the [deployd demo site](https://bucketlistplaces.netlify.app/)
