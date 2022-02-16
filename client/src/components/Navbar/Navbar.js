@@ -1,8 +1,6 @@
 // @ts-nocheck
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import memoriesLogo from '../../images/memoriesLogo.png'
-import memoriesText from '../../images/memoriesText.png'
 import useStyles from './styles'
 import decode from 'jwt-decode'
 import { useEffect, useState } from 'react'
@@ -30,6 +28,7 @@ const Navbar = () => {
       if (decodedToken.exp * 1000 < new Date().getTime()) logout()
     }
     setUser(JSON.parse(localStorage.getItem('profile')))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
   return (

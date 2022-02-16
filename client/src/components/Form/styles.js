@@ -6,10 +6,13 @@ export default makeStyles(theme => ({
       margin: theme.spacing(1),
     },
   },
-  paper: {
+  signinrecommend: {
     padding: theme.spacing(2),
     borderRadius: '10px',
-    color:'lightgrey'
+    color:'lightgrey',
+    fontFamily: 'Roboto',
+    letterSpacing: '2',
+    marginTop: '50%'
   },
   form: {
     display: 'flex',

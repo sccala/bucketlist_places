@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, Grow, Grid } from '@material-ui/core'
+import { Container, Grow, Grid, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
 import { getPosts } from '../../actions/posts'
@@ -17,22 +17,20 @@ const Home = () => {
 
   return (
     <Grow in>
-      <Container maxWidth='xl'>
-        <Grid
-          container
-          justify='space-between'
-          alignItems='stretch'
-          spacing={3}
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-            <Posts setCurrentId={setCurrentId} />
-          </Grid>
-          <Grid item xs={12} sm={3} md={3}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
-          </Grid>
+      <Grid
+        container
+        justify='space-between'
+        alignItems='stretch'
+        spacing={3}
+        className={classes.gridContainer}
+      >
+        <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+          <Posts setCurrentId={setCurrentId} />
         </Grid>
-      </Container>
+        <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+          <Form currentId={currentId} setCurrentId={setCurrentId} />
+        </Grid>
+      </Grid>
     </Grow>
   )
 }
