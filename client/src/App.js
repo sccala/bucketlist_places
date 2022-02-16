@@ -8,8 +8,8 @@ import { Auth } from './components/Auth/Auth'
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Container maxWidth='xl'>
-        <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/auth' exact component={Auth} />

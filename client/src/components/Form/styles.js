@@ -9,10 +9,20 @@ export default makeStyles(theme => ({
   signinrecommend: {
     padding: theme.spacing(2),
     borderRadius: '10px',
-    color:'lightgrey',
+    color: 'lightgrey',
     fontFamily: 'Roboto',
     letterSpacing: '2',
-    marginTop: '50%'
+    marginTop: '50%',
+  },
+  input: {
+    color: 'lightgrey',
+  },
+  focused: {
+    border: 'lightgrey',
+  },
+  notchedOutline:{
+borderWidth: '1px',
+    borderColor: 'green !important'
   },
   form: {
     display: 'flex',
@@ -25,5 +35,10 @@ export default makeStyles(theme => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+  },
+  paper: {
+    padding: theme.spacing(3),
+    border: 'solid 0.2px',
+    borderRadius: '5px',
   },
 }))

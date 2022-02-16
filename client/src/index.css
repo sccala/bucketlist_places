@@ -1,9 +1,20 @@
 body {
-    background-color: #23263A;
+  background-color: #23263a;
+  color: white;
 }
 
 * {
-    /* font-family: 'Noto Sans JP' !important; */
-    font-family: 'Roboto', sans-serif !important;
-    backgroundColor: '#23263A'
+  font-family: 'Roboto', sans-serif !important;
+}
+
+heading {
+  color: lightgrey;
+  font-family: 'Roboto', sans-serif !important;
+  letter-spacing: 2px;
+}
+
+h1 {
+  color: lightgrey;
+  font-family: 'Roboto', sans-serif !important;
+  letter-spacing: 2px;
 }

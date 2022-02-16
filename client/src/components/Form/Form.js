@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Paper, TextField, Typography, Button } from '@material-ui/core'
+import { TextField, Typography, Button } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useState, useEffect } from 'react'
 import useStyles from './styles'
@@ -44,47 +44,108 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <div className={classes.signinrecommend} raised elevation={6}>
         <Typography variant='h6' align='center'>
-          Please Sign In to create your own memories<br/> and like other's memories.
+          Please Sign In to create your own memories
+          <br /> and like other's memories.
         </Typography>
       </div>
     )
   }
 
   return (
-    <Paper className={classes.paper} raised elevation={6}>
+    <div className={classes.paper} raised elevation={6}>
       <form
         autoComplete='off'
         noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant='h6'>{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
+        <Typography style={{ letterSpacing: '2px', color: 'lightgrey' }} variant='h6'>
+          {currentId ? 'Editing' : 'Creating'} a Bucket List
+        </Typography>
 
         <TextField
+          style={{
+            letterSpacing: '2px',
+            color: 'lightgrey',
+            border: 'solid .1px lightgrey',
+            borderRadius: '5px',
+          }}
           name='title'
           variant='outlined'
           label='Title'
           fullWidth
           value={postData.title}
           onChange={e => setPostData({ ...postData, title: e.target.value })}
+          InputLabelProps={{
+            style: {
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              width: '100%',
+              color: 'lightgrey',
+            },
+          }}
+          InputProps={{
+            className: classes.input,
+          }}
         />
         <TextField
+          style={{
+            letterSpacing: '2px',
+            color: 'lightgrey',
+            border: 'solid .1px lightgrey',
+            borderRadius: '5px',
+          }}
           name='message'
           variant='outlined'
           label='Message'
           fullWidth
           multiline
-          rows={4}
+          rows={2}
           value={postData.message}
           onChange={e => setPostData({ ...postData, message: e.target.value })}
+          InputLabelProps={{
+            style: {
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              width: '100%',
+              color: 'lightgrey',
+            },
+          }}
+          InputProps={{
+            className: classes.input,
+          }}
         />
         <TextField
+          style={{
+            letterSpacing: '2px',
+            color: 'lightgrey',
+            border: 'solid .1px lightgrey',
+            borderRadius: '5px',
+          }}
           name='tags'
           variant='outlined'
           label='Tags (comma separated)'
           fullWidth
           value={postData.tags}
           onChange={e => setPostData({ ...postData, tags: e.target.value.split(',') })}
+          InputLabelProps={{
+            style: {
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              width: '100%',
+              color: 'lightgrey',
+            },
+          }}
+          InputProps={{
+            className: {
+              input: classes.input,
+              focused: classes.focused,
+              notchedOutline: classes.notchedOutline,
+            },
+          }}
         />
         <div className={classes.fileInput}>
           <FileBase
@@ -96,18 +157,24 @@ const Form = ({ currentId, setCurrentId }) => {
         <Button
           className={classes.buttonSubmit}
           variant='contained'
-          color='primary'
-          size='large'
+          size='small'
           type='submit'
           fullWidth
+          style={{ backgroundColor: '#740606', color: 'lightgrey' }}
         >
           Submit
         </Button>
-        <Button variant='contained' color='secondary' size='small' onClick={clear} fullWidth>
+        <Button
+          style={{ backgroundColor: 'black', color: 'lightgrey' }}
+          variant='contained'
+          size='small'
+          onClick={clear}
+          fullWidth
+        >
           Clear
         </Button>
       </form>
-    </Paper>
+    </div>
   )
 }
 export default Form
