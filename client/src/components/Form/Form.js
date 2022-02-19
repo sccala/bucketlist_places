@@ -44,8 +44,8 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <div className={classes.signinrecommend} raised elevation={6}>
         <Typography variant='h6' align='center'>
-          Please Sign In to create your own memories
-          <br /> and like other's memories.
+          Please Sign In to create your own bucket list.
+          <br /> and like other's list.
         </Typography>
       </div>
     )
