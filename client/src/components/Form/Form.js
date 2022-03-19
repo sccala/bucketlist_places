@@ -42,7 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if (!user?.result?.name) {
     return (
-      <div className={classes.signinrecommend} raised elevation={6}>
+      <div className={classes.signinrecommend} elevation={6}>
         <Typography variant='h6' align='center'>
           Please Sign In to create your own bucket list.
           <br /> and like other's list.
@@ -52,7 +52,7 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   return (
-    <div className={classes.paper} raised elevation={6}>
+    <div className={classes.paper} elevation={6}>
       <form
         autoComplete='off'
         noValidate

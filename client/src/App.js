@@ -8,7 +8,6 @@ import { Auth } from './components/Auth/Auth'
 const App = () => {
   return (
     <BrowserRouter>
-      <img alt='contour background' src='./images/contour.svg' />
       <Navbar />
       <Container maxWidth='xl'>
         <Switch>

@@ -16,7 +16,8 @@ app.use(cors())
 
 app.use('/posts', postRoutes)
 app.use('/user', userRoutes)
-
+//static folder
+// app.use(express.static(path.join(__dirname, '/public')))
 
 const PORT = process.env.PORT || 5000
 
