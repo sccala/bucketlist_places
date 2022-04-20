@@ -1,15 +1,12 @@
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined'
-import useStyles from './styles'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
 
 const Post = ({ post, setCurrentId }) => {
-  const classes = useStyles()
   const dispatch = useDispatch()
   const user = JSON.parse(localStorage.getItem('profile'))
 
@@ -40,64 +37,55 @@ const Post = ({ post, setCurrentId }) => {
   }
 
   return (
-    <Card className={classes.card} elevation={6}>
-      <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
-      <div className={classes.overlay}>
-        <Typography style={{ color: 'lightgrey' }} variant='h6'>
-          {post.name}
-        </Typography>
-        <Typography style={{ color: 'lightgrey' }} variant='body2'>
-          {moment(post.createdAt).fromNow()}
-        </Typography>
+    <div className='flex flex-col justify-between relative bg-gray-100 rounded-md shadow-sm h-full '>
+      <div className='pb-2/3'>
+        <img
+          alt={post.title}
+          className='rounded-t-md h-48 w-full object-cover'
+          src={post.selectedFile}
+          title={post.title}
+        />
+      </div>
+
+      <div className='absolute top-1 left-2 '>
+        <p className='text-sm text-gray-300'>{post.name}</p>
+        <p className='text-sm text-gray-300'>{moment(post.createdAt).fromNow()}</p>
       </div>
       {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-        <div className={classes.overlay2}>
-          <Button
-            style={{ color: 'lightgrey' }}
-            size='small'
-            onClick={() => setCurrentId(post._id)}
-          >
-            <MoreHorizIcon fontSize='medium' />
-          </Button>
-        </div>
+        <button className='text-gray-600' onClick={() => setCurrentId(post._id)}>
+          <MoreHorizIcon className='text-base' />
+        </button>
       )}
-
-      <div className={classes.details}>
-        <Typography variant='body2' color='textSecondary'>
-          {post.tags.map(tag => `#${tag} `)}
-        </Typography>
+      <div className='py-0 px-2'>
+        <div className='flex justify-between my-2'>
+          <p className=''>{post.tags.map(tag => `#${tag} `)}</p>
+        </div>
+        <p className='text-base text-gray-500 py-0'>{post.title}</p>
+        <div>
+          <p className='text-sm text-gray-500'>{post.message}</p>
+        </div>
       </div>
-      <Typography className={classes.title} gutterBottom variant='h6'>
-        {post.title}
-      </Typography>
-      <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>
-          {post.message}
-        </Typography>
-      </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button
-          size='small'
+      <div className='px-4 pt-0 pb-2 justify-between flex'>
+        <button
           disabled={!user?.result}
           onClick={() => dispatch(likePost(post._id))}
-          style={{ color: 'grey' }}
+          className='text-gray-400'
         >
           <Likes />
-        </Button>
+        </button>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <Button
-            size='small'
+          <button
             color='primary'
             onClick={() => {
               dispatch(deletePost(post._id))
             }}
-            style={{ color: 'grey' }}
+            className='text-gray-600'
           >
             <DeleteIcon fontSize='small' /> Delete
-          </Button>
+          </button>
         )}
-      </CardActions>
-    </Card>
+      </div>
+    </div>
   )
 }
 

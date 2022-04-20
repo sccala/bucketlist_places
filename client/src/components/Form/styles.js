@@ -12,7 +12,7 @@ export default makeStyles(theme => ({
     color: 'lightgrey',
     fontFamily: 'Roboto',
     letterSpacing: '2',
-    marginTop: '50%',
+    marginBlock: '0.5rem',
   },
   input: {
     color: 'lightgrey',
@@ -20,9 +20,9 @@ export default makeStyles(theme => ({
   focused: {
     border: 'lightgrey',
   },
-  notchedOutline:{
-borderWidth: '1px',
-    borderColor: 'green !important'
+  notchedOutline: {
+    borderWidth: '1px',
+    borderColor: 'green !important',
   },
   form: {
     display: 'flex',

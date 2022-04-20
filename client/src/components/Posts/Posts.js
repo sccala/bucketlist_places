@@ -1,24 +1,23 @@
 // @ts-nocheck
-import { Grid, CircularProgress } from '@material-ui/core'
+import { CircularProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 import Post from './Post/Post'
-import useStyles from './styles'
 
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector(state => state.posts)
-  const classes = useStyles()
 
   return !posts.length ? (
     <CircularProgress />
   ) : (
-    <Grid className={classes.container} container alignItems='stretch' spacing={3}>
+    <div
+      className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-around'
+      alignItems='stretch'
+    >
       {posts?.map(post => (
-        <Grid key={post._id} item xs={12} sm={12} md={6} lg={3}>
-          <Post post={post} setCurrentId={setCurrentId} />
-        </Grid>
+        <Post key={post._id} post={post} setCurrentId={setCurrentId} />
       ))}
-    </Grid>
+    </div>
   )
 }
 

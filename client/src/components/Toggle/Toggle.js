@@ -19,7 +19,7 @@ export const DarkModeToggle = () => {
             />
           </span>
         </span>
-        <span className='ml-3 text-sm'>{isDark ? 'ON' : 'OFF'}</span>
+        <span className='ml-3 text-sm'>{isDark ? 'Dark' : 'Light'}</span>
       </label>
     </div>
   )

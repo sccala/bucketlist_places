@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useState } from 'react'
-import { Avatar, Container, Paper, Button, Typography, Grid } from '@material-ui/core'
+import { Avatar, Paper, Button, Typography, Grid } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Icon from './icon'
@@ -57,7 +57,7 @@ export const Auth = () => {
   }
 
   return (
-    <Container component='main' maxWidth='xs'>
+    <div className='w-2/3 lg:w-2/4 mx-auto'>
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avator}>
           <LockOutlinedIcon />
@@ -122,7 +122,7 @@ export const Auth = () => {
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
           />
-          <Grid container justifyContent='flex-end'>
+          <Grid justifyContent='flex-end'>
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
@@ -131,6 +131,6 @@ export const Auth = () => {
           </Grid>
         </form>
       </Paper>
-    </Container>
+    </div>
   )
 }

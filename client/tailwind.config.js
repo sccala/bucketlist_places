@@ -6,16 +6,91 @@ module.exports = {
     './src/components/*.{js,jsx}',
     './src/*.{js,jsx,ts,tsx}',
   ],
-  // purge: [
-  //   './src/**/*.{js,jsx,ts,tsx}',
-  //   './src/*.{js,jsx,ts,tsx}',
-  //   './public/index.html',
-  //   './src/components/*.{js,jsx}',
-  // ],
   darkMode: 'class',
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    container: {
+      padding: {
+        default: '2rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+      center: true,
+    },
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
+    },
+    fontSize: {
+      sub: [
+        '0.775rem',
+        {
+          letterSpacing: '-0.01em',
+          lineHeight: '0.775rem',
+        },
+      ],
+      sm: [
+        '0.875rem',
+        {
+          letterSpacing: '-0.01em',
+          lineHeight: '0.975rem',
+        },
+      ],
+      base: [
+        '1rem',
+        {
+          letterSpacing: '-0.02em',
+          lineHeight: '1.5rem',
+        },
+      ],
+      title: [
+        '1.375rem',
+        {
+          letterSpacing: '-0.02em',
+          lineHeight: '1.5rem',
+        },
+      ],
+      lg: [
+        '2.225rem',
+        {
+          letterSpacing: '-0.01em',
+          lineHeight: '2.175rem',
+        },
+      ],
+      xl: [
+        '3rem',
+        {
+          letterSpacing: '-0.01em',
+          lineHeight: '2.875rem',
+        },
+      ],
+    },
+    fontWeight: {
+      bold: 500,
+    },
+    letterSpacing: {
+      DEFAULT: '-5%',
+      tightest: '-.075em',
+      tighter: '-.05em',
+      normal: '0',
+      wider: '.05em',
+      widest: '.25em',
+    },
+    borderWidth: {
+      DEFAULT: '0.5px',
+      0: '0.2px',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      6: '6px',
+      8: '8px',
     },
     extend: {
       backgroundColor: {
@@ -32,24 +107,17 @@ module.exports = {
       fontFamily: {
         sans: ['Roboto', 'sans-serif'],
       },
-      container: {
-        padding: {
-          default: '0.5rem',
-          sm: '1rem',
-          lg: '4rem',
-          xl: '5rem',
-        },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        gray: colors.gray,
+        purple: colors.purple,
+        blue: colors.sky,
+        red: colors.rose,
+        pink: colors.fuchsia,
+        indigo: colors.indigo,
+        white: colors.white,
       },
-    },
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      gray: colors.gray,
-      blue: colors.sky,
-      red: colors.rose,
-      pink: colors.fuchsia,
-      indigo: colors.indigo,
-      white: colors.white,
     },
   },
   variants: {
