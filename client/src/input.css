@@ -550,14 +550,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --color-bg-accent: #6461af;
   --color-text-primary: #f7fafc;
   --color-text-secondary: #e2e8f0;
-  --color-text-accent: #a5b4fc;
+  --color-text-accent: #465498;
 }
 
 .light {
-  --color-bg-primary: #fcfcfc;
+  --color-bg-primary: #484f7a;
   --color-bg-secondary: #f3f2f2;
   --color-bg-accent: #9692df;
-  --color-text-primary: #1f2937;
+  --color-text-primary: #f3f3f3;
   --color-text-secondary: #9ca3af;
   --color-text-accent: #4f46e5;
 }

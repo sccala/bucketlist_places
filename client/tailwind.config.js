@@ -30,14 +30,14 @@ module.exports = {
     },
     fontSize: {
       sub: [
-        '0.775rem',
+        '0.675rem',
         {
           letterSpacing: '-0.01em',
           lineHeight: '0.775rem',
         },
       ],
       sm: [
-        '0.875rem',
+        '8.875rem',
         {
           letterSpacing: '-0.01em',
           lineHeight: '0.975rem',
@@ -55,6 +55,7 @@ module.exports = {
         {
           letterSpacing: '-0.02em',
           lineHeight: '1.5rem',
+          paddingBottom: '1rem',
         },
       ],
       lg: [
@@ -62,6 +63,7 @@ module.exports = {
         {
           letterSpacing: '-0.01em',
           lineHeight: '2.175rem',
+          paddingBottom: '1rem',
         },
       ],
       xl: [
@@ -76,7 +78,7 @@ module.exports = {
       bold: 500,
     },
     letterSpacing: {
-      DEFAULT: '-5%',
+      DEFAULT: '.05em',
       tightest: '-.075em',
       tighter: '-.05em',
       normal: '0',
@@ -126,5 +128,5 @@ module.exports = {
       dropShadow: ['hover', 'focus'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }

@@ -4,11 +4,12 @@ import decode from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { LOGOUT } from '../../constants/actionTypes'
-import { DarkModeToggle } from '../Toggle/Toggle'
+import { useDarkMode } from '../../hooks/useDarkMode'
 
 const Navbar = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const [isDark, setIsDark] = useDarkMode()
   const location = useLocation()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
@@ -32,21 +33,20 @@ const Navbar = () => {
     <>
       <nav className='py-6 bg-primary w-screen sticky'>
         <div className='flex items-center justify-between mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4'>
-          <p className='flex text-xl text-primary space-x-2'>🌟 Bucket List Places</p>
-
+          <p href='/' className='flex text-xl text-primary space-x-2 pointer tracking-wide'>
+            🌟 Bucket List Places
+          </p>
           <section className=''>
             {user?.result ? (
               <>
                 <div alt={user?.result.name} src={user?.result.imageUrl}>
                   {user?.result.name.charAt(0)}
                 </div>
-                <div style={{ color: 'lightgrey', margin: '0 5%' }} variant='p'>
+                <p style={{ color: 'lightgrey', margin: '0 5%' }}>
                   {user?.result.name}
-                </div>
+                </p>
                 <button
-                  variant='contained'
                   style={{ backgroundColor: '#740606' }}
-                  color='secondary'
                   onClick={logout}
                 >
                   Logout
@@ -61,7 +61,12 @@ const Navbar = () => {
                 Sign In
               </button>
             )}
-            {/* <DarkModeToggle /> */}
+            <button
+              className='items-center py-1 px-1 mx-2 text-white rounded-full text-base mt-4 sm:mt-0'
+              onClick={isDark => setIsDark(prevState => !prevState)}
+            >
+              {isDark ? '🌛' : '🌞 '}
+            </button>
           </section>
         </div>
       </nav>
