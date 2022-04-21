@@ -31,11 +31,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='py-6 bg-primary w-screen sticky'>
+      <nav className='py-6  w-screen sticky'>
         <div className='flex items-center justify-between mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4'>
-          <p href='/' className='flex text-xl text-primary space-x-2 pointer tracking-wide'>
+          <h1 href='/' className='flex text-xl text-gray-200 space-x-2 pointer tracking-wide'>
             🌟 Bucket List Places
-          </p>
+          </h1>
           <section className=''>
             {user?.result ? (
               <>

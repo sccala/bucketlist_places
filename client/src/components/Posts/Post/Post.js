@@ -53,7 +53,7 @@ const Post = ({ post, setCurrentId }) => {
   }
 
   return (
-    <div className='flex flex-col relative bg-gray-100 rounded-md shadow-sm h-full justify-between '>
+    <div className='flex flex-col relative bg-gray-100 dark:bg-secondary rounded-md shadow-sm h-full justify-between '>
       <div>
         <div className='pb-2/3'>
           <img
@@ -76,9 +76,9 @@ const Post = ({ post, setCurrentId }) => {
           <div className='flex my-2 '>
             <p className='text-accent text-sm text-right'>{post.tags.map(tag => `#${tag} `)}</p>
           </div>
-          <p className='title text-gray-800 bold py-0 '>{post.title}</p>
+          <p className='title text-primary bold py-0 '>{post.title}</p>
           <div>
-            <p className='pt-2 text-sm text-gray-500 line-clamp-3'>{post.message}</p>
+            <p className='pt-2 text-sm text-primary line-clamp-3'>{post.message}</p>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@ const Post = ({ post, setCurrentId }) => {
             }}
             className='text-gray-600'
           >
-            <DeleteIcon fontSize='small' /> Delete
+            <DeleteIcon fontSize='small'/> Delete
           </button>
         )}
       </div>
