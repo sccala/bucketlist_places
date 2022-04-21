@@ -33,22 +33,19 @@ const Navbar = () => {
     <>
       <nav className='py-6  w-screen sticky'>
         <div className='flex items-center justify-between mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4'>
-          <h1 href='/' className='flex text-xl text-gray-200 space-x-2 pointer tracking-wide'>
-            🌟 Bucket List Places
-          </h1>
+          <a href='/'>
+            <h1 className='flex text-xl text-gray-200 space-x-2 pointer tracking-wide cursor-pointer'>
+              🌟 Bucket List Places
+            </h1>
+          </a>
           <section className=''>
             {user?.result ? (
               <>
                 <div alt={user?.result.name} src={user?.result.imageUrl}>
                   {user?.result.name.charAt(0)}
                 </div>
-                <p style={{ color: 'lightgrey', margin: '0 5%' }}>
-                  {user?.result.name}
-                </p>
-                <button
-                  style={{ backgroundColor: '#740606' }}
-                  onClick={logout}
-                >
+                <p style={{ color: 'lightgrey', margin: '0 5%' }}>{user?.result.name}</p>
+                <button style={{ backgroundColor: '#740606' }} onClick={logout}>
                   Logout
                 </button>
               </>
