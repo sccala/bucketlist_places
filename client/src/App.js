@@ -11,6 +11,7 @@ const App = () => {
       <Switch>
         <div className='container mx-auto'>
           <Route path='/' exact component={Home} />
+         
           <Route path='/auth' exact component={Auth} />
         </div>
       </Switch>
