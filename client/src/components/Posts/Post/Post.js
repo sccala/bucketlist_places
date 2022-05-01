@@ -1,5 +1,4 @@
 import DeleteIcon from '@material-ui/icons/Delete'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { deletePost, likePost } from '../../../actions/posts'
@@ -58,7 +57,7 @@ const Post = ({ post, setCurrentId }) => {
         <div className='pb-2/3'>
           <img
             alt={post.title}
-            className='rounded-t-md h-48 w-full object-cover'
+            className='rounded-t-md h-48 w-full object-cover '
             src={post.selectedFile}
             title={post.title}
           />
@@ -69,7 +68,6 @@ const Post = ({ post, setCurrentId }) => {
         </div>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
           <button className='text-gray-600' onClick={() => setCurrentId(post._id)}>
-            <MoreHorizIcon className='text-base' />
           </button>
         )}
         <div className='py-0 px-4 '>

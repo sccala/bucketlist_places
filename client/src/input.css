@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+    background-color: var(--color-bg-primary);
+}
+* {
+  scroll-behavior: smooth;
+}
+
 .dark {
   --color-bg-primary: #23263a;
   --color-bg-secondary: #3d4261;

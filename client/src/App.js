@@ -9,9 +9,8 @@ const App = () => {
     <BrowserRouter>
       <Navbar className='container' />
       <Switch>
-        <div className='container mx-auto'>
+        <div className='container'>
           <Route path='/' exact component={Home} />
-         
           <Route path='/auth' exact component={Auth} />
         </div>
       </Switch>

@@ -34,7 +34,7 @@ const Navbar = () => {
       <nav className='py-6  w-screen sticky'>
         <div className='flex items-center justify-between mx-auto xl:max-w-7xl lg:max-w-5xl md:max-w-3xl md:px-2 px-4'>
           <a href='/'>
-            <h1 className='flex text-xl text-gray-200 space-x-2 pointer tracking-wide cursor-pointer'>
+            <h1 className='flex text-title text-gray-200 space-x-2 pointer tracking-wide cursor-pointer'>
               🌟 Bucket List Places
             </h1>
           </a>

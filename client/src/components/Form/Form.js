@@ -43,7 +43,7 @@ const Form = ({ currentId, setCurrentId }) => {
   if (!user?.result?.name) {
     return (
       <div className={classes.signinrecommend} elevation={6}>
-        <div className='py-8 text-xl' variant='h6' align='center'>
+        <div className='py-8 text-title text-primary' variant='h6' align='center'>
           Please sign in to create your own bucket list and like other's list.
         </div >
       </div>

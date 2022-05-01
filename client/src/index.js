@@ -6,13 +6,14 @@ import reducers from './reducers'
 import thunk from 'redux-thunk'
 import App from './App'
 import './input.css'
+import 'flowbite'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
 ReactDom.render(
   <>
     <Provider store={store}>
-      <App />    
+      <App/>    
     </Provider>
   </>,
   document.getElementById('root')

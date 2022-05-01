@@ -11,8 +11,8 @@ const Posts = ({ setCurrentId }) => {
     <CircularProgress />
   ) : (
     <div
-      className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-around'
-      alignItems='stretch'
+      className='grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-4 justify-around'
+     
     >
       {posts?.map(post => (
         <Post key={post._id} post={post} setCurrentId={setCurrentId} />

@@ -1,11 +1,11 @@
 const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
-    './src/**/*.{html,js}',
-    './public/*.html',
-    './src/components/*.{js,jsx}',
-    './src/components/*/*.{js,jsx}',
-    './src/*.{js,jsx,ts,tsx}',
+    './public/index.html',
+    './dist/*.{html,js}',
+    './index.html',
+     "./node_modules/flowbite/**/*.js",
+    './src/components/**/*.{js,jsx,html}',
   ],
   darkMode: 'class',
   theme: {
@@ -17,11 +17,12 @@ module.exports = {
     },
     container: {
       padding: {
-        default: '2rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        default: '1rem',
+        sm: '0.2rem',
+        md: '2rem',
+        lg: '3rem',
+        xl: '4rem',
+        '2xl': '5rem',
       },
       center: true,
     },
@@ -37,24 +38,24 @@ module.exports = {
         },
       ],
       sm: [
-        '8.875rem',
+        '0.875rem',
         {
-          letterSpacing: '-0.01em',
+          letterSpacing: '0.05em',
           lineHeight: '0.975rem',
         },
       ],
       base: [
         '1rem',
         {
-          letterSpacing: '-0.02em',
-          lineHeight: '1.5rem',
+          letterSpacing: '0.01em',
+          lineHeight: '1.3rem',
         },
       ],
       title: [
-        '1.375rem',
+        '1.175rem',
         {
-          letterSpacing: '-0.02em',
-          lineHeight: '1.5rem',
+          letterSpacing: '0.02em',
+          lineHeight: '1.475rem',
           paddingBottom: '1rem',
         },
       ],
@@ -128,5 +129,8 @@ module.exports = {
       dropShadow: ['hover', 'focus'],
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/line-clamp'), 
+    require('flowbite/plugin')
+  ],
 }
