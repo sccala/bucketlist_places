@@ -4,7 +4,7 @@ module.exports = {
     './public/index.html',
     './dist/*.{html,js}',
     './index.html',
-     "./node_modules/flowbite/**/*.js",
+    './node_modules/flowbite/**/*.js',
     './src/components/**/*.{js,jsx,html}',
   ],
   darkMode: 'class',
@@ -129,8 +129,5 @@ module.exports = {
       dropShadow: ['hover', 'focus'],
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'), 
-    require('flowbite/plugin')
-  ],
+  plugins: [require('@tailwindcss/line-clamp'), require('flowbite/plugin')],
 }

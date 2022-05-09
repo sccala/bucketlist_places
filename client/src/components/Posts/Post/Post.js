@@ -52,55 +52,57 @@ const Post = ({ post, setCurrentId }) => {
   }
 
   return (
-    <div className='flex flex-col relative bg-gray-100 dark:bg-secondary rounded-md shadow-sm h-full justify-between '>
-      <div>
-        <div className='pb-2/3'>
-          <img
-            alt={post.title}
-            className='rounded-t-md h-48 w-full object-cover '
-            src={post.selectedFile}
-            title={post.title}
-          />
-        </div>
-        <div className='absolute top-4 right-4 text-right'>
-          <p className='text-sm text-gray-300 leading-3'>{post.name}</p>
-          <p className='text-sm text-gray-300'>{moment(post.createdAt).fromNow()}</p>
-        </div>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <button className='text-gray-600' onClick={() => setCurrentId(post._id)}>
-          </button>
-        )}
-        <div className='py-0 px-4 '>
-          <div className='flex my-2 '>
-            <p className='text-accent text-sm text-right'>{post.tags.map(tag => `#${tag} `)}</p>
+    <>
+      <div className='flex flex-col relative bg-gray-100 dark:bg-secondary rounded-md shadow-sm h-full justify-between '>
+        <div>
+          <div className='pb-2/3'>
+            <img
+              alt={post.title}
+              className='rounded-t-md h-48 w-full object-cover '
+              src={post.selectedFile}
+              title={post.title}
+            />
           </div>
-          <p className='title text-primary bold py-0 '>{post.title}</p>
-          <div>
-            <p className='pt-2 text-sm text-primary line-clamp-3'>{post.message}</p>
+          <div className='absolute top-4 right-4 text-right'>
+            <p className='text-sm text-gray-300 leading-3'>{post.name}</p>
+            <p className='text-sm text-gray-300'>{moment(post.createdAt).fromNow()}</p>
+          </div>
+          {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+            <button className='text-gray-600' onClick={() => setCurrentId(post._id)}></button>
+          )}
+          <div className='py-0 px-4 '>
+            <div className='flex my-2 '>
+              <p className='text-accent text-sm text-right'>{post.tags.map(tag => `#${tag} `)}</p>
+            </div>
+            <p className='title text-primary bold py-0 '>{post.title}</p>
+            <div>
+              <p className='pt-2 text-sm text-primary line-clamp-3'>{post.message}</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className='px-4 pt-0 pb-2 flex'>
-        <button
-          disabled={!user?.result}
-          onClick={() => dispatch(likePost(post._id))}
-          className='text-gray-400'
-        >
-          <Likes />
-        </button>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+        <div className='px-4 pt-0 pb-2 flex'>
           <button
-            color='primary'
-            onClick={() => {
-              dispatch(deletePost(post._id))
-            }}
-            className='text-gray-600'
+            disabled={!user?.result}
+            onClick={() => dispatch(likePost(post._id))}
+            className='text-gray-400'
           >
-            <DeleteIcon fontSize='small' /> Delete
+            <Likes />
           </button>
-        )}
+          {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+            <button
+              color='primary'
+              onClick={() => {
+                dispatch(deletePost(post._id))
+              }}
+              className='text-gray-600'
+            >
+              <DeleteIcon fontSize='small' /> Delete
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+      
+    </>
   )
 }
 
