@@ -100,6 +100,7 @@ module.exports = {
         primary: 'var(--color-bg-primary)',
         secondary: 'var(--color-bg-secondary)',
         tertiary: 'var(--color-bg-tertiary)',
+        accent: 'var(--color-bg-accent)',
       },
       textColor: {
         accent: 'var(--color-text-accent)',

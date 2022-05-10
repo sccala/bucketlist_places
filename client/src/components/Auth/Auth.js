@@ -135,66 +135,55 @@ export const Auth = () => {
       </div>
 
       {/* tailwind form */}
-      <div className='bg-white py-6 sm:py-8 lg:py-12'>
+      <div className=' py-6 sm:py-8 lg:py-12'>
         <div className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
-          <h2 className='text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8'>
-            Login
+          <h2 className='text-primary text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8'>
+            {isSignup ? 'Sign Up' : 'Sign In'}
           </h2>
 
-          <form className='max-w-lg border rounded-lg mx-auto'>
+          <form className='max-w-lg border rounded-lg mx-auto' onSubmit={handleSubmit}>
             <div className='flex flex-col gap-4 p-4 md:p-8'>
               <div>
-                <label for='email' className='inline-block text-gray-800 text-sm sm:text-base mb-2'>
+                <label
+                  for='email'
+                  className='inline-block text-primary text-sm sm:text-base mb-2'
+                  handleChange={handleChange}
+                >
                   Email
                 </label>
                 <input
                   name='email'
-                  className='w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                  label='Email Address'
+                  className='w-full bg-gray-50 text-primary border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                  handleChange={handleChange}
                 />
               </div>
 
               <div>
                 <label
                   for='password'
-                  className='inline-block text-gray-800 text-sm sm:text-base mb-2'
+                  label='Password'
+                  className='inline-block text-primary text-sm sm:text-base mb-2'
                 >
                   Password
                 </label>
                 <input
+                  handleChange={handleChange}
+                  handleShowPassword={handleShowPassword}
                   name='password'
-                  className='w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                  type={showPassword ? 'text' : 'password'}
+                  className='w-full bg-accent text-primary border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
                 />
               </div>
 
-              <button className='block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3'>
-                Log in
+              <button
+                type='submit'
+                className='block bg-purple-700 hover:bg-accent active:bg-accent focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3'
+              >
+                {isSignup ? 'Sign up' : 'Sign In'}
               </button>
 
-              <div className='flex justify-center items-center relative'>
-                <span className='h-px bg-gray-300 absolute inset-x-0'></span>
-                <span className='bg-white text-gray-400 text-sm relative px-4'>
-                  Log in with social
-                </span>
-              </div>
-
-              <button className='flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3'>
-                <svg
-                  className='w-5 h-5 shrink-0'
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M12 0C5.37273 0 0 5.37273 0 12C0 18.0164 4.43182 22.9838 10.2065 23.8516V15.1805H7.23764V12.0262H10.2065V9.92727C10.2065 6.45218 11.8996 4.92655 14.7878 4.92655C16.1711 4.92655 16.9025 5.02909 17.2489 5.076V7.82945H15.2787C14.0525 7.82945 13.6244 8.99182 13.6244 10.302V12.0262H17.2178L16.7302 15.1805H13.6244V23.8773C19.4815 23.0825 24 18.0747 24 12C24 5.37273 18.6273 0 12 0Z'
-                    fill='white'
-                  />
-                </svg>
-                Continue with Facebook
-              </button>
-
-              <button className='flex justify-center items-center bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-300 focus-visible:ring ring-gray-300 text-gray-800 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3'>
+              <button className='flex justify-center items-center bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-300 focus-visible:ring ring-gray-300 text-primary text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3'>
                 <svg
                   className='w-5 h-5 shrink-0'
                   width='24'
@@ -224,8 +213,8 @@ export const Auth = () => {
               </button>
             </div>
 
-            <div className='flex justify-center items-center bg-gray-100 p-4'>
-              <p className='text-gray-500 text-sm text-center'>
+            <div className='flex justify-center items-center bg-purple-900 p-4 mt-8 rounded-b-lg'>
+              <p className='text-primary text-sm text-center'>
                 Don't have an account?{' '}
                 <a
                   href='/'

@@ -4,7 +4,7 @@ export const Footer = () => {
       <footer className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
      
         <div className='text-primary text-sm text-center py-8'>
-          © 2021 - Chase Chung. All rights reserved.
+          created by chase chung
         </div>
       </footer>
     </div>
