@@ -11,8 +11,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar className='container' />
-      <Switch>
-        <div className='container'>
+      <div className='container'>
+        <Switch>
           <Route path='/' exact component={() => <Redirect to='/posts' />} />
           <Route path='/posts' exact component={Home} />
           <Route path='/posts/search' exact component={Home} />
@@ -22,8 +22,8 @@ const App = () => {
             exact
             component={() => (!user ? <Auth /> : <Redirect to='/posts' />)}
           />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       <Footer />
     </BrowserRouter>
   )
