@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { FETCH_ALL, FETCH_BY_SEARCH, CREATE, UPDATE, DELETE } from '../constants/actionTypes'
+import { FETCH_ALL, FETCH_BY_SEARCH, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes'
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -11,7 +11,9 @@ export default (state = [], action) => {
         numberOfPages: action.payload.numberOfPages,
       }
     case FETCH_BY_SEARCH:
-      return { ...state, posts: action.payload.data }
+      return { ...state, posts: action.payload }
+    case LIKE:
+      return state.map(post => (post._id === action.payload._id ? action.payload : post))
     case CREATE:
       return [...state, action.payload]
     case UPDATE:

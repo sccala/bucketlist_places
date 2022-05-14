@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import PostMessage from '../models/PostMessage.js'
 
-export const getPosts = async (req, res) => {
+export const getPosts = page => async (req, res) => {
   const { page } = req.query
   try {
     const LIMIT = 8
