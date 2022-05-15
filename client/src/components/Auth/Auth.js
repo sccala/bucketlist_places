@@ -145,7 +145,7 @@ export const Auth = () => {
             <div className='flex flex-col gap-4 p-4 md:p-8'>
               <div>
                 <label
-                  for='email'
+                  htmlFor='email'
                   className='inline-block text-primary text-sm sm:text-base mb-2'
                   handleChange={handleChange}
                 >
@@ -161,7 +161,7 @@ export const Auth = () => {
 
               <div>
                 <label
-                  for='password'
+                  htmlFor='password'
                   label='Password'
                   className='inline-block text-primary text-sm sm:text-base mb-2'
                 >
@@ -228,5 +228,5 @@ export const Auth = () => {
         </div>
       </div>
     </>
-    )              
+  )
 }

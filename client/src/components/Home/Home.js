@@ -6,21 +6,21 @@ import { getPostsBySearch } from '../../actions/posts'
 import Pagination from '../Pagination'
 import Posts from '../Posts/Posts'
 import Form from '../Form/Form'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import useStyles from './styles'
 import ChipInput from 'material-ui-chip-input'
 
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search)
-// }
+function useQuery() {
+  return new URLSearchParams(useLocation().search)
+}
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(0)
   const dispatch = useDispatch()
-  // const query = useQuery()
+  const query = useQuery()
   const history = useHistory()
   // const page = query.get('page') || 1
-  // const searchQuery = query.get('searchQuery')
+  const searchQuery = query.get('searchQuery')
   const classes = useStyles()
   const [search, setSearch] = useState('')
   const [tags, setTags] = useState([])
@@ -77,9 +77,11 @@ const Home = () => {
         </Button>
       </AppBar>
       <Form currentId={currentId} setCurrentId={setCurrentId} />
-      <Paper>
-        <Pagination />
-      </Paper>
+      {!searchQuery && !tags.length && (
+        <Paper>
+          <Pagination />
+        </Paper>
+      )}
       <Posts setCurrentId={setCurrentId} />
     </div>
   )
