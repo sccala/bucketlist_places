@@ -7,11 +7,13 @@ import {
   updatePost,
   deletePost,
   likePost,
+  getPost,
 } from '../controllers/posts.js'
 
 const router = express.Router()
 import auth from '../middleware/auth.js'
 
+router.get('/:id', getPost)
 router.get('/', getPosts)
 router.get('/search', getPostsBySearch)
 router.post('/', auth, createPost)

@@ -19,7 +19,7 @@ const Home = () => {
   const dispatch = useDispatch()
   const query = useQuery()
   const history = useHistory()
-  // const page = query.get('page') || 1
+  const page = query.get('page') || 1
   const searchQuery = query.get('searchQuery')
   const classes = useStyles()
   const [search, setSearch] = useState('')
@@ -79,7 +79,7 @@ const Home = () => {
       <Form currentId={currentId} setCurrentId={setCurrentId} />
       {!searchQuery && !tags.length && (
         <Paper>
-          <Pagination />
+          <Pagination page={page} />
         </Paper>
       )}
       <Posts setCurrentId={setCurrentId} />

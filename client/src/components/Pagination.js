@@ -1,16 +1,16 @@
-// @ts-nocheck
-import { Pagination, PaginationItem } from '@material-ui/lab'
-import useStyles from './styles'
-import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Pagination, PaginationItem } from '@material-ui/lab'
+import { Link } from 'react-router-dom'
+
 import { getPosts } from '../actions/posts'
+import useStyles from './styles'
 
 const Paginate = ({ page }) => {
-  const classes = useStyles()
-  const dispatch = useDispatch()
   const { numberOfPages } = useSelector(state => state.posts)
+  const dispatch = useDispatch()
 
+  const classes = useStyles()
   useEffect(() => {
     if (page) dispatch(getPosts(page))
   }, [dispatch, page])

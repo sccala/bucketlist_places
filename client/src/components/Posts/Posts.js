@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { CircularProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
